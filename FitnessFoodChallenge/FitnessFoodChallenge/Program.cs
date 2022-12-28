@@ -1,3 +1,5 @@
+using Cron.Service.configs;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -8,6 +10,11 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
+var host = Host.CreateDefaultBuilder(args).ConfigureServices((hostContext, services) =>
+{
+    services.AddCronAdapter(builder.Configuration);
+});
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
