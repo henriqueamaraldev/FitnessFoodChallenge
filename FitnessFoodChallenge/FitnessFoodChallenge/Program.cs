@@ -11,10 +11,12 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-var host = Host.CreateDefaultBuilder(args).ConfigureServices((hostContext, services) =>
+IHost host = Host.CreateDefaultBuilder(args).ConfigureServices((hostContext, services) =>
 {
     services.AddCronAdapter(builder.Configuration);
-});
+})
+    .UseWindowsService()
+    .Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
