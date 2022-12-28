@@ -24,33 +24,33 @@ namespace Cron.Service.configs
 
             var jobKey = new JobKey(jobName);
 
-            
-            quartz.AddJob<T>(options => options.WithIdentity(jobKey));
+            quartz = AddJob<T>(quartz, jobKey);
 
-            quartz.AddTrigger(options => options
-                .ForJob(jobKey)
-                .WithIdentity(jobName + "-trigger")
-                .WithCronSchedule(cronExecutionTime)
-            );
+            JobModel job = new JobModel(jobKey, jobName, cronExecutionTime);
+
+            quartz = AddTrigger(quartz, job);
         }
 
         //Methods for refactoring
-        public static void AddJob<T>(
+        public static IServiceCollectionQuartzConfigurator AddJob<T>(
                 IServiceCollectionQuartzConfigurator quartz, 
                 JobKey jobKey
             )
             where T : IJob
         {
             quartz.AddJob<T>(options => options.WithIdentity(jobKey));
+            return quartz;
         }
 
-        public static void AddTrigger(IServiceCollectionQuartzConfigurator quartz, JobModel job)
+        public static IServiceCollectionQuartzConfigurator AddTrigger(IServiceCollectionQuartzConfigurator quartz, JobModel job)
         {
             quartz.AddTrigger(options => options
                .ForJob(job.Key)
                .WithIdentity(job.Name + "-trigger")
                .WithCronSchedule(job.ExecutionTime)
            );
+
+            return quartz;
         }
     }
 }
