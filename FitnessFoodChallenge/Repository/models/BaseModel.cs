@@ -3,7 +3,7 @@ using MongoDB.Bson;
 
 namespace Repository.models
 {
-    public abstract class BaseEntity
+    public abstract class BaseModel
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
