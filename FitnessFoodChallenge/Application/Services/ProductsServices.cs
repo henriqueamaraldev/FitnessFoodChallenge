@@ -18,9 +18,9 @@ namespace Application.Services
             return product;
         }
 
-        public async Task<List<Product>> GetAllProductsAsync()
+        public async Task<PaginatedResult<Product>> GetPaginatedProductsAsync(PaginatedRequest request)
         {
-            var products = await _productsCollection.GetAllAsync();
+            var products = await _productsCollection.GetPaginatedAsync(request);
 
             return products;
         }

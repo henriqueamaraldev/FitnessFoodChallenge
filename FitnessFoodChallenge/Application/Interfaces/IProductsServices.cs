@@ -5,6 +5,6 @@ namespace Application.Interfaces
     public interface IProductsServices
     {
         Task<Product> GetProductsByIdAsync(long id);
-        Task<List<Product>> GetAllProductsAsync();
+        Task<PaginatedResult<Product>> GetPaginatedProductsAsync(PaginatedRequest request);
     }
 }

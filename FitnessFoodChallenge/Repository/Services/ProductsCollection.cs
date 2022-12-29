@@ -21,9 +21,14 @@ namespace Repository.services
             return await _productCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
         }
 
-        public async Task<List<Product>> GetAllAsync()
+        public async Task<PaginatedResult<Product>> GetPaginatedAsync(PaginatedRequest request)
         {
-            return await _productCollection.Find(x => true).ToListAsync();
+            var result = await _productCollection.Find(x => true)
+                .Skip((request.Page - 1) * request.PageSize)
+                .Limit(request.PageSize)
+                .ToListAsync();
+            var count = _productCollection.CountDocuments(x => true);
+            return new PaginatedResult<Product>(request, count, result);
         }
     }
 }
