@@ -5,11 +5,11 @@ using Repository.settings;
 
 namespace Repository.services
 {
-    public class ProductServices
+    public class ProductsCollection
     {
         private readonly IMongoCollection<Product> _productCollection;
 
-        public ProductServices(IOptions<ProductDbConfigs> productServices)
+        public ProductsCollection(IOptions<ProductDbConfigs> productServices)
         {
             var mongoClient = new MongoClient(productServices.Value.ConnString);
             var mongoDatabase = mongoClient.GetDatabase(productServices.Value.DatabaseName);
