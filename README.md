@@ -13,6 +13,8 @@ The project aims to support the team of nutritionists from the company Fitness F
 - Generate a .gitignore file
 - Copy challenges instructions repository
 - Start a .NET 6.0 solution
+- Cron project for cron jobs
+- Repository project for mongodb
 - Create a webapi
 - Decide what data storage to use
 - Create a project for the tests
