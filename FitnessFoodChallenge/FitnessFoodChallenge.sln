@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cron.Service", "Cron.Servic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository\Repository.csproj", "{B969F44F-E1D7-4CAD-AE0B-D32B59A5942C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{BE04E70C-0D1E-464B-BAE8-B6677F4D08CF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{B969F44F-E1D7-4CAD-AE0B-D32B59A5942C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B969F44F-E1D7-4CAD-AE0B-D32B59A5942C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B969F44F-E1D7-4CAD-AE0B-D32B59A5942C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE04E70C-0D1E-464B-BAE8-B6677F4D08CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE04E70C-0D1E-464B-BAE8-B6677F4D08CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE04E70C-0D1E-464B-BAE8-B6677F4D08CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE04E70C-0D1E-464B-BAE8-B6677F4D08CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

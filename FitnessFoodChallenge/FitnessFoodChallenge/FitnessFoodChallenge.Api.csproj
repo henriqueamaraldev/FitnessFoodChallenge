@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Cron.Service\Cron.Service.csproj" />
+    <ProjectReference Include="..\Repository\Repository.csproj" />
   </ItemGroup>
 
 </Project>
