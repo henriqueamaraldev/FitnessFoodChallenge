@@ -1,7 +1,6 @@
 ﻿using Cron.Service.models;
 using Microsoft.Extensions.Configuration;
 using Quartz;
-
 namespace Cron.Service.configs
 {
     public static class QuartzAdapater
@@ -14,8 +13,8 @@ namespace Cron.Service.configs
         {
             string jobName = typeof(T).Name;
 
-            var configKey = $"Quartz: {jobName}";
-            var cronExecutionTime = config[configKey];
+            var configKey = jobName;
+            var cronExecutionTime = config.GetSection(jobName).Value;
 
             if (string.IsNullOrEmpty(cronExecutionTime))
             {
@@ -26,7 +25,7 @@ namespace Cron.Service.configs
 
             quartz = AddJob<T>(quartz, jobKey);
 
-            JobModel job = new JobModel(jobKey, jobName, cronExecutionTime);
+            JobModel job = new(jobKey, jobName, cronExecutionTime);
 
             quartz = AddTrigger(quartz, job);
         }
