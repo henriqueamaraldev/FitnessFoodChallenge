@@ -1,11 +1,13 @@
-﻿using MongoDB.Driver;
+﻿using Microsoft.Extensions.Options;
+using MongoDB.Driver;
 using Repository.models;
-using Microsoft.Extensions.Options;
+using Repository.Models.Interfaces;
 using Repository.settings;
+using System.Linq.Expressions;
 
 namespace Repository.services
 {
-    public class ProductsCollection
+    public class ProductsCollection : IProductsCollection
     {
         private readonly IMongoCollection<Product> _productCollection;
 
@@ -29,6 +31,33 @@ namespace Repository.services
                 .ToListAsync();
             var count = _productCollection.CountDocuments(x => true);
             return new PaginatedResult<Product>(request, count, result);
+        }
+
+        public async Task<bool> ProductExists(long id)
+        {
+            var product = await _productCollection. Find(x => x.Id == id).FirstOrDefaultAsync();
+
+            if(product == null)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public async Task UpdateProductAsync(Product product)
+        {
+            var oldProduct = await _productCollection.Find(x => x.Id == product.Id).FirstOrDefaultAsync();
+
+            Expression<Func<Product, bool>> filter = x => x.Id.Equals(product.Id);
+
+            product.Imported_at = oldProduct.Imported_at;
+
+            await _productCollection.FindOneAndReplaceAsync<Product>(filter, product);
+        }
+        public async Task AddProductAsync(Product product)
+        {
+            await _productCollection.InsertOneAsync(product);
         }
     }
 }

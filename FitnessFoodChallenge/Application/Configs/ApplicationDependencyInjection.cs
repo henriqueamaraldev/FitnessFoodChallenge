@@ -4,9 +4,9 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Application.Configs
 {
-    public static class DependencyInjection
+    public static class ApplicationDependencyInjection
     {
-        public static IServiceCollection InjectDependecies (this IServiceCollection services)
+        public static IServiceCollection InjectApplicationDependecies (this IServiceCollection services)
         {
             services.AddScoped<IProductsServices, ProductsServices>();
 
