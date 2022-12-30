@@ -1,3 +1,4 @@
+using Application.Configs;
 using Cron.Service.configs;
 using Repository.settings;
 
@@ -9,6 +10,8 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.InjectApplicationDependecies();
+builder.Services.InjectRepositoryDependecies();
 
 builder.Services.Configure<ProductDbConfigs>(builder.Configuration.GetSection("Database"));
 
