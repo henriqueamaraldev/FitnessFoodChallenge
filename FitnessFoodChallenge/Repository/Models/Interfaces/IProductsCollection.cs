@@ -4,11 +4,11 @@ namespace Repository.Models.Interfaces
 {
     public interface IProductsCollection
     {
-        Task<Product> GetByIdAsync(long id);
+        Task<Product> GetByIdAsync(string id);
 
         Task<PaginatedResult<Product>> GetPaginatedAsync(PaginatedRequest request);
 
-        Task<bool> ProductExists(long id);
+        Task<bool> ProductExists(string id);
 
         Task UpdateProductAsync(Product product);
 

@@ -11,8 +11,8 @@ namespace FitnessFoodChallenge.Api.Controllers
     public class ProductsController : ControllerBase
     {
         private readonly IProductsServices _productsService;
-        private readonly Logger<ProductsController> _logger;
-        public ProductsController(IProductsServices productsServices, Logger<ProductsController> logger)
+        private readonly ILogger<ProductsController> _logger;
+        public ProductsController(IProductsServices productsServices, ILogger<ProductsController> logger)
         {
             _productsService = productsServices;
             _logger = logger;
@@ -36,7 +36,7 @@ namespace FitnessFoodChallenge.Api.Controllers
                 {
                     return BadRequest();
                 }
-                if (paginatedProducts.Results.Any())
+                if (!paginatedProducts.Results.Any())
                 {
                     return NoContent();
                 }
@@ -52,7 +52,7 @@ namespace FitnessFoodChallenge.Api.Controllers
 
         [HttpGet]
         [Route("products/{id}")]
-        public async Task<IActionResult> IActionResultGetProduct(long id)
+        public async Task<IActionResult> IActionResultGetProduct(string id)
         {
             try
             {

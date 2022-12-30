@@ -7,6 +7,6 @@ namespace Repository.models
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public long Id { get; private set; }
+        public string Id { get; private set; }
     }
 }

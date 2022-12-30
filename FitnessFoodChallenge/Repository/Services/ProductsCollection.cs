@@ -18,7 +18,7 @@ namespace Repository.services
             _productCollection = mongoDatabase.GetCollection<Product>(productServices.Value.ProductCollectionName);
         }
 
-        public async Task<Product> GetByIdAsync(long id)
+        public async Task<Product> GetByIdAsync(string id)
         {
             return await _productCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
         }
@@ -33,7 +33,7 @@ namespace Repository.services
             return new PaginatedResult<Product>(request, count, result);
         }
 
-        public async Task<bool> ProductExists(long id)
+        public async Task<bool> ProductExists(string id)
         {
             var product = await _productCollection. Find(x => x.Id == id).FirstOrDefaultAsync();
 

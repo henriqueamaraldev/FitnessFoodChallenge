@@ -1,41 +1,43 @@
-﻿using MongoDB.Bson.Serialization.Attributes;
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 using Repository.enums;
 
 namespace Repository.models
 {
     public class Product : BaseModel
     {
-        [BsonElement("Code")]
+        [BsonElement("code")]
         public long Code { get; set; }
 
-        [BsonElement("BarCode")]
+        [BsonElement("barcode")]
         public string BarCode { get; set; } = null!;
 
-        [BsonElement("Status")]
+        [BsonElement("status")]
         public Status Status { get; set; }
 
-        [BsonElement("Imported_at")]
+        [BsonElement("imported_t")]
+        [BsonRepresentation(BsonType.DateTime)]
         public DateTime Imported_at { get; set; }
 
-        [BsonElement("Url")]
+        [BsonElement("url")]
         public string Url { get; set; } = null!;
 
-        [BsonElement("ProductName")]
+        [BsonElement("product_name")]
         public string ProductName { get; set; } = null!;
 
-        [BsonElement("Quantity")]
+        [BsonElement("quantity")]
         public string Quantity { get; set; } = null!;
 
-        [BsonElement("Categories")]
+        [BsonElement("categories")]
         public string Categories { get; set; } = null!;
 
-        [BsonElement("Packaging")]
+        [BsonElement("packaging")]
         public string Packaging { get; set; } = null!;
 
-        [BsonElement("Brands")]
+        [BsonElement("brands")]
         public string Brands { get; set; } = null!;
 
-        [BsonElement("ImageUrl")]
+        [BsonElement("image_url")]
         public string ImageUrl { get; set; } = null!;
 
     }
