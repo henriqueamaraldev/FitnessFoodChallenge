@@ -1,6 +1,4 @@
 ﻿using Application.Interfaces;
-using Application.Services;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Repository.models;
 
