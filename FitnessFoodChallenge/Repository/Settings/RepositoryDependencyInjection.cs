@@ -13,3 +13,4 @@ namespace Application.Configs
             return services;
         }
     }
+}
