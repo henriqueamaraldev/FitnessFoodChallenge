@@ -14,8 +14,8 @@ namespace Repository.services
         public ProductsCollection(IOptions<ProductDbConfigs> productServices)
         {
             var mongoClient = new MongoClient(productServices.Value.ConnString);
-            var mongoDatabase = mongoClient.GetDatabase(productServices.Value.DatabaseName);
-            _productCollection = mongoDatabase.GetCollection<Product>(productServices.Value.ProductCollectionName);
+            var mongoDatabase = mongoClient.GetDatabase(productServices.Value.Name);
+            _productCollection = mongoDatabase.GetCollection<Product>("Products");
         }
 
         public async Task<Product> GetByIdAsync(string id)
@@ -35,7 +35,7 @@ namespace Repository.services
 
         public async Task<bool> ProductExists(string id)
         {
-            var product = await _productCollection. Find(x => x.Id == id).FirstOrDefaultAsync();
+            var product = await _productCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
 
             if(product == null)
             {

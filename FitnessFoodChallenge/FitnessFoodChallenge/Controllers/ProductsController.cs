@@ -1,6 +1,7 @@
 ﻿using Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Repository.models;
+using System.Text;
 
 namespace FitnessFoodChallenge.Api.Controllers
 {
@@ -19,12 +20,14 @@ namespace FitnessFoodChallenge.Api.Controllers
         [Route("/")]
         public string HelloWorld()
         {
-            return "Fullstack Challenge 20201026";
+            byte[] data = Convert.FromBase64String("RnVsbHN0YWNrIENoYWxsZW5nZSAyMDIwMTAyNg==");
+            string decodedString = Encoding.UTF8.GetString(data);
+            return decodedString;
         }
 
         [HttpGet]
         [Route("products")]
-        public async Task<IActionResult> GetProducts([FromRoute] PaginatedRequest request)
+        public async Task<IActionResult> GetProducts([FromQuery] PaginatedRequest request)
         {
             try
             {
