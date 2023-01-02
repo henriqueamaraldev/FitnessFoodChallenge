@@ -45,7 +45,7 @@ namespace FitnessFoodChallenge.Api.Controllers
             }
             catch(Exception e)
             {
-                _logger.LogError("1", e);
+                _logger.LogError("GetAllProducts route error", e);
                 return BadRequest();
             }
             
@@ -68,7 +68,7 @@ namespace FitnessFoodChallenge.Api.Controllers
             } 
             catch(Exception e)
             {
-                _logger.LogError("2", e);
+                _logger.LogError("GetProductById route error.", e);
                 return BadRequest();
             }
         }
