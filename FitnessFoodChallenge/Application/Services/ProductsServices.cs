@@ -1,7 +1,6 @@
 ﻿using Application.Interfaces;
 using Repository.models;
 using Repository.Models.Interfaces;
-using Repository.services;
 
 namespace Application.Services
 {
