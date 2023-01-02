@@ -13,7 +13,6 @@ namespace Cron.Service.configs
         {
             string jobName = typeof(T).Name;
 
-            var configKey = jobName;
             var cronExecutionTime = config.GetSection(jobName).Value;
 
             if (string.IsNullOrEmpty(cronExecutionTime))
@@ -30,7 +29,7 @@ namespace Cron.Service.configs
             quartz = AddTrigger(quartz, job);
         }
 
-        //Methods for refactoring
+        
         public static IServiceCollectionQuartzConfigurator AddJob<T>(
                 IServiceCollectionQuartzConfigurator quartz, 
                 JobKey jobKey
