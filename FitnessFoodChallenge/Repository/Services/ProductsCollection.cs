@@ -33,9 +33,9 @@ namespace Repository.services
             return new PaginatedResult<Product>(request, count, result);
         }
 
-        public async Task<bool> ProductExists(string id)
+        public async Task<bool> ProductExists(string barCode)
         {
-            var product = await _productCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
+            var product = await _productCollection.Find(x => x.BarCode == barCode).FirstOrDefaultAsync();
 
             if(product == null)
             {

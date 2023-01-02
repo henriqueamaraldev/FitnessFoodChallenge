@@ -40,5 +40,20 @@ namespace Repository.models
         [BsonElement("image_url")]
         public string ImageUrl { get; set; } = null!;
 
+        public Product()
+        {
+            Code = new long();
+            BarCode = null;
+            Imported_at = DateTime.Now;
+            Status = Status.draft;
+            Packaging = null;
+            Url = null;
+            ProductName = null;
+            Quantity = null;
+            Categories = null;
+            Brands = null;
+            ImageUrl = null;
+        }
+
     }
 }
