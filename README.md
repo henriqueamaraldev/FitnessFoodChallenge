@@ -11,7 +11,7 @@
 
 # Execução
 
-- Clonar este repositório</p>
+- Clonar o repositório
 - Visual Studio
   > Abrir o Docker Desktop
   > Abrir o arquivo FitnessFoodChallenge.sln pelo Visual Studio 2022

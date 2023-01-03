@@ -47,7 +47,7 @@ namespace Repository.services
 
         public async Task UpdateProductAsync(Product product)
         {
-            var oldProduct = await _productCollection.Find(x => x.Id == product.Id).FirstOrDefaultAsync();
+            var oldProduct = await _productCollection.Find(x => x.BarCode == product.BarCode).FirstOrDefaultAsync();
 
             Expression<Func<Product, bool>> filter = x => x.Id.Equals(product.Id);
 
