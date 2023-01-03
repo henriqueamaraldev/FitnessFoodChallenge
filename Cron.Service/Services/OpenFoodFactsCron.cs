@@ -51,6 +51,15 @@ namespace Cron.Service.services
                             if (Exists(By.Id("barcode")))
                             {
                                 product.Code = long.Parse(_chromeDriver.FindElement(By.Id("barcode")).Text);
+                                product.ImageUrl = $"https://static.openfoodfacts.org/images/products/{FormatBarCode(product.Code.ToString())}";
+                            }
+                            if (Exists(By.Id("field_quantity_value")))
+                            {
+                                product.Quantity = _chromeDriver.FindElement(By.Id("field_quantity_value")).Text;
+                            }
+                            if (Exists(By.Id("field_packaging_value")))
+                            {
+                                product.Packaging = _chromeDriver.FindElement(By.Id("field_packaging_value")).Text;
                             }
                             if (Exists(By.Id("barcode_paragraph")))
                             {
@@ -61,30 +70,13 @@ namespace Cron.Service.services
                             {
                                 product.ProductName = _chromeDriver.FindElement(By.Id("field_generic_name_value")).Text;
                             }
-                            if (Exists(By.Id("field_quantity_value")))
-                            {
-                                product.Quantity = _chromeDriver.FindElement(By.Id("field_quantity_value")).Text;
-                            }
-                            if (Exists(By.Id("field_packaging_value")))
-                            {
-                                product.Packaging = _chromeDriver.FindElement(By.Id("field_packaging_value")).Text;
-                            }
-                            if (Exists(By.Id("field_brands_value")))
-                            {
-                                product.Brands = _chromeDriver.FindElement(By.Id("field_brands_value")).Text;
-                            }
                             if (Exists(By.Id("field_categories_value")))
                             {
                                 product.Categories = _chromeDriver.FindElement(By.Id("field_categories_value")).Text;
                             }
-
-                            if (product.Code.ToString().Length <= 8)
+                            if (Exists(By.Id("field_brands_value")))
                             {
-                                product.ImageUrl = $"https://static.openfoodfacts.org/images/products/{product.Code}";
-                            }
-                            else
-                            {
-                                product.ImageUrl = $"https://static.openfoodfacts.org/images/products/{FormatBarCode(product.Code.ToString())}";
+                                product.Brands = _chromeDriver.FindElement(By.Id("field_brands_value")).Text;
                             }
 
                             var productExists = await _productsRepository.ProductExists(product.BarCode);

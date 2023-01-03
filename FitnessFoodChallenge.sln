@@ -7,9 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FitnessFoodChallenge.Api", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cron.Service", "Cron.Service\Cron.Service.csproj", "{11F900F3-C81F-4DBE-A6AF-3ECB83B851D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository\Repository.csproj", "{B969F44F-E1D7-4CAD-AE0B-D32B59A5942C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repository", "Repository\Repository.csproj", "{B969F44F-E1D7-4CAD-AE0B-D32B59A5942C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{BE04E70C-0D1E-464B-BAE8-B6677F4D08CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\Application.csproj", "{BE04E70C-0D1E-464B-BAE8-B6677F4D08CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
