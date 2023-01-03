@@ -1,5 +1,36 @@
-# Backend Challenge 20220626
+# Descrição
 
+- Este projeto trabalha com produtos e é composto pelas camadas de infraestrutura, aplicação, api, repositorio e cron.
+- Detém um job que roda as 00:00 diariamente que realiza um scraping da página Open Food Facts e salva em um banco mongDB cloud ou o atualiza caso ele ja exista.
+
+# Requisitos
+
+- Ter o sdk do .NET6 em sua máquina
+- Recomendável - Possuir o Visual Studio 2022
+- Recomendável - Possuir o Docker Desktop
+
+# Execução
+
+- Clonar este repositório</p>
+- Visual Studio
+  > Abrir o Docker Desktop
+  > Abrir o arquivo FitnessFoodChallenge.sln pelo Visual Studio 2022
+  > Abrir a Solution Explorer, clicar com o botao direito em FitnessFoodChallenge.Api, clicar na opção "Set as startup project"
+  > Selecionar a opção "Docker" nas opções de run e clicar em run.
+- Terminal
+  > Abrir o path do projeto no terminal e escrever o comando "dotnet run"
+
+# Tecnologias usadas
+
+.NET6
+Selenium
+Quartz
+mongoDB
+Asp Net Core
+
+This a challenge by <a href="https://coodesh.com/">Coodesh</a>
+
+# Backend Challenge 20220626
 
 ## Introdução
 
@@ -8,7 +39,7 @@ Nesse desafio trabalharemos no desenvolvimento de uma REST API que utilizará os
 O projeto tem como objetivo dar suporte a equipe de nutricionistas da empresa Fitness Foods LC para que possam comparar de maneira rápida a informação nutricional dos alimentos da base do Open Food Facts.
 
 ### Antes de começar
- 
+
 - Prepare o projeto para ser disponibilizado no Github, copiando o conteúdo deste repositório para o seu (ou utilize o fork do projeto e aponte para o Github). Confirme que a visibilidade do projeto é pública (não esqueça de colocar no readme a referência a este challenge);
 - O projeto deve utilizar a Linguagem específica na sua Vaga (caso esteja se candidatando). Por exempo: Python, R, Scala e entre outras;
 - Considere como deadline 5 dias a partir do início do desafio. Caso tenha sido convidado a realizar o teste e não seja possível concluir dentro deste período, avise a pessoa que o convidou para receber instruções sobre o que fazer.
@@ -39,7 +70,6 @@ Ao realizar o scraping do HTML, recomendamos utilizar estruturas recursivas para
 - Embalagem
 - Categorias
 
-
 Ter em conta que:
 
 - Todos os produtos deverão ter os campos personalizados `imported_t` e `status`.
@@ -61,7 +91,6 @@ Na REST API teremos os seguintes endpoints:
 - **Diferencial 3** Descrever a documentação da API utilizando o conceito de Open API 3.0;
 - **Diferencial 4** Escrever Unit Tests para os endpoints da API;
 
-
 ## Readme do Repositório
 
 - Deve conter o título de cada projeto
@@ -76,9 +105,9 @@ Na REST API teremos os seguintes endpoints:
 - Deve conter uma lista com linguagem, framework e/ou tecnologias usadas
 - Como instalar e usar o projeto (instruções)
 - Não esqueça o [.gitignore](https://www.toptal.com/developers/gitignore)
-- Se está usando github pessoal, referencie que é um challenge by coodesh:  
+- Se está usando github pessoal, referencie que é um challenge by coodesh:
 
->  This is a challenge by [Coodesh](https://coodesh.com/)
+> This is a challenge by [Coodesh](https://coodesh.com/)
 
 ## Finalização e Instruções para a Apresentação
 
@@ -89,10 +118,12 @@ Avisar sobre a finalização e enviar para correção.
 3. Acesse [https://coodesh.com/challenges/review](https://coodesh.com/challenges/review);
 4. Adicione o repositório com a sua solução;
 5. Grave um vídeo, utilizando o botão na tela de solicitar revisão da Coodesh, com no máximo 5 minutos, com a apresentação do seu projeto. Utilize o tempo para:
+
 - Explicar o objetivo do desafio
 - Quais tecnologias foram utilizadas
 - Mostrar a aplicação em funcionamento
 - Foque em pontos obrigatórios e diferenciais quando for apresentar.
+
 6. Adicione o link da apresentação do seu projeto no README.md.
 7. Verifique se o Readme está bom e faça o commit final em seu repositório;
 8. Confira a vaga desejada;
